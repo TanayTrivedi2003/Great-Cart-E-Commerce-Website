@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% block tittle %} Profile Page {% endblock tittle %}
+{%block body %}
+<section id="portfolio" class="portfolio">
+    <div class="container">
+<h1 class="text-center"> My Profile</h1> 
+<table class="table table-info table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Order ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Products</th>
+        <th scope="col">Amount Paid</th>
+        <th scope="col">Payment Status</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Delivery Status</th>
+        <th scope="col">Delivered</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i  in items %}
+
+        <tr>
+            <th scope="row">{{i.oid}} </th>
+            <td> {{i.name}}</td>
+            <td>{{i.items_json}} </td>
+            <td>{{i.amount}} </td>
+            <td> {{i.paymentstatus}}</td>
+            <td> {{i.address1}}</td>
+            <td> {{i.phone}}</td>
+
+            {% for j in status  %}
+            <td> {{j.update_desc}}</td>
+
+
+       
+            {% if j.delivered %}
+            <td><i class="fa-solid fa-circle-check"></i> Delivered</td>
+            {% else %}
+            <td> <i class="fa-solid fa-truck"></i> Not Delivered</td>
+            {% endif %}
+
+
+            <td> {{j.timestamp}}</td>
+            {% endfor %}
+  
+          
+        
+        {% endfor %}
+
+
+
+    </tbody>
+</table>
+
+
+
+
+    </div>
+    <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Great Cart</h3>
+            <p>
+               Kidwai Nagar Road, Near LIC Park, <br>
+               Kidwai Nagar, Kanpur,<br>
+               Uttar Pradesh 208011<br><br>
+              <strong>Phone:</strong> 7991398699<br>
+              <strong>Email:</strong> tanaytrivedi205@gmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/contact">Contact</a></li>
+              
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> Sale Product</li>
+             
+              <li><i class="bx bx-chevron-right"></i> Product Management</li>
+              <li><i class="bx bx-chevron-right"></i> Marketing</li>
+              <li><i class="bx bx-chevron-right"></i> Advertisement</li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+           
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Great Cart</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        
+        <a href="https://www.facebook.com/vsicskanpur/" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/vsef_vsics/" class="instagram"><i class="bx bxl-instagram"></i></a>
+        
+        <a href="https://www.linkedin.com/in/vsef-vsics-8a7a78206/?originalSubdomain=in" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+{% endblock body %}

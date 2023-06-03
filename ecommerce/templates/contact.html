@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% block tittle %} Contact us  {% endblock tittle %}
+
+
+{% block body %}
+<h1 class="text-center">Contact Us</h1>
+
+<div class="container mt-4">
+    {% for message in messages %}
+
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+      <strong>{{message}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+<div class="row">
+
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+
+        <form action="/contact" method="post">
+          {% csrf_token %}
+          <br />
+      
+          <label for="name">Full Name</label>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control p-2"
+              id="name"
+              name="name"
+              required
+            />
+          </div>
+          <label for="email">Email</label>
+          <div class="form-group">
+            <input
+              type="email"
+              class="form-control p-2"
+              id="email"
+              name="email"
+              value="{{user.email}}"
+              required
+            />
+          </div>
+          <label for="pass1">How Can i Help You?</label>
+          <div class="form-group">
+            <textarea
+              type="text"
+              class="form-control p-2"
+              id="desc"
+              name="desc"
+              required> </textarea>
+          </div>
+
+          <label for="pnumber">Phone Number</label>
+          <div class="form-group">
+            <input
+              type="number"
+              class="form-control p-2"
+              id="pnumber"
+              name="pnumber"
+              required
+            />
+          </div>
+          <br />
+          <button type="submit" class="btn btn-dark">Submit</button>
+      
+         
+          <br />
+          <br />
+          <br />
+        </form>
+
+
+
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+
+
+
+</div>
+ <!-- ======= Footer ======= -->
+ <footer id="footer">
+
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h3>Great Cart</h3>
+          <p>
+             Kidwai Nagar Road, Near LIC Park, <br>
+             Kidwai Nagar, Kanpur,<br>
+             Uttar Pradesh 208011<br><br>
+            <strong>Phone:</strong> 7991398699<br>
+            <strong>Email:</strong> tanaytrivedi205@gmail.com<br>
+          </p>
+        </div>
+
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="/about">About us</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="/contact">Contact</a></li>
+            
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> Sale Product</li>
+           
+            <li><i class="bx bx-chevron-right"></i> Product Management</li>
+            <li><i class="bx bx-chevron-right"></i> Marketing</li>
+            <li><i class="bx bx-chevron-right"></i> Advertisement</li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6 footer-newsletter">
+         
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container d-md-flex py-4">
+
+    <div class="me-md-auto text-center text-md-start">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Great Cart</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+    <div class="social-links text-center text-md-right pt-3 pt-md-0">
+      
+      <a href="https://www.facebook.com/vsicskanpur/" class="facebook"><i class="bx bxl-facebook"></i></a>
+      <a href="https://www.instagram.com/vsef_vsics/" class="instagram"><i class="bx bxl-instagram"></i></a>
+      
+      <a href="https://www.linkedin.com/in/vsef-vsics-8a7a78206/?originalSubdomain=in" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+    </div>
+  </div>
+</footer><!-- End Footer -->
+
+{% endblock body %}
